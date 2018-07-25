@@ -14,7 +14,11 @@ class CreateGerechtsTable extends Migration
     public function up()
     {
         Schema::create('gerechts', function (Blueprint $table) {
-            $table->increments('id');
+            /*$table->increments('id');*/
+            $table->string('naam')->unique();
+            $table->string('omschrijving');
+            $table->string('vlees');
+            $table->string('type');
             $table->timestamps();
         });
     }

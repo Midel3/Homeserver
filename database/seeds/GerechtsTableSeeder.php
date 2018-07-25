@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class GerechtsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(GerechtsTableSeeder::class);
+        //5 is het aantal objecten
+        factory(Homeserver\Gerecht::class, 5)->create();
     }
 }

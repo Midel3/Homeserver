@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
@@ -104,11 +104,7 @@
                 "singularize",
                 "string"
             ],
-<<<<<<< HEAD
-            "time": "2017-07-22T12:18:28+00:00"
-=======
             "time": "2018-01-09T20:05:19+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "doctrine/lexer",
@@ -1397,11 +1393,7 @@
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< HEAD
-            "version": "v3.4.13",
-=======
             "version": "v4.1.2",
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -1450,11 +1442,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2018-05-16T12:49:49+00:00"
-=======
             "time": "2018-05-30T07:26:09+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "symfony/debug",
@@ -1514,11 +1502,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-<<<<<<< HEAD
-            "version": "v3.4.13",
-=======
             "version": "v4.1.2",
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -1577,11 +1561,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2018-04-06T07:35:25+00:00"
-=======
             "time": "2018-07-10T11:02:47+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "symfony/finder",
@@ -2076,18 +2056,6 @@
         },
         {
             "name": "symfony/translation",
-<<<<<<< HEAD
-            "version": "v3.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "0d1c0965c3e82250b9786909cf584fd4a50c9c5b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/0d1c0965c3e82250b9786909cf584fd4a50c9c5b",
-                "reference": "0d1c0965c3e82250b9786909cf584fd4a50c9c5b",
-=======
             "version": "v4.1.2",
             "source": {
                 "type": "git",
@@ -2098,7 +2066,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation/zipball/2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
                 "reference": "2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
                 "shasum": ""
             },
             "require": {
@@ -2154,11 +2121,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2018-07-23T08:18:36+00:00"
-=======
             "time": "2018-07-23T08:20:20+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "symfony/var-dumper",
@@ -2380,11 +2343,7 @@
                 "constructor",
                 "instantiate"
             ],
-<<<<<<< HEAD
-            "time": "2015-06-14T21:17:01+00:00"
-=======
             "time": "2017-07-22T11:58:36+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "filp/whoops",
@@ -2657,11 +2616,7 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< HEAD
-            "time": "2017-10-19T19:58:43+00:00"
-=======
             "time": "2018-06-11T23:09:50+00:00"
->>>>>>> b4b4178c38f250580d5c719f931dbf824997d075
         },
         {
             "name": "phar-io/manifest",
