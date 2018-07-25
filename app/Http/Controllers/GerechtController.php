@@ -14,7 +14,8 @@ class GerechtController extends Controller
      */
     public function index()
     {
-        //
+        $gerechts = \Homeserver\Gerecht::all();
+        return view('gerechten.overzicht')->with('gerechts', $gerechts);
     }
 
     /**

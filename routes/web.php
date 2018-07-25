@@ -12,9 +12,7 @@
 */
 
 Route::get('/', function () {
-    $gerechts = \Homeserver\Gerecht::all();
-    /*return view('welcome', ['gerechts' => $gerechts]);*/
-    return view('home')->with('gerechts', $gerechts);
+    return view('home');
 });
 
 /*default auth*/
@@ -22,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*midel*/
+Route::get('/gerechten/overzicht', 'GerechtController@index');

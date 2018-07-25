@@ -8,11 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <div>
-                        @foreach ($gerechts as $gerecht)
-                            <p>{{$gerecht->naam}}<p>
-                        @endforeach
-                    </div>
+                    <a href="{{action('GerechtController@index')}}">Gerechten</a>
                 </div>
             </div>
         </div>

@@ -12,6 +12,6 @@ class GerechtsTableSeeder extends Seeder
     public function run()
     {
         //5 is het aantal objecten
-        factory(Homeserver\Gerecht::class, 5)->create();
+        factory(Homeserver\Gerecht::class, 30)->create();
     }
 }
