@@ -3,6 +3,7 @@
 namespace Homeserver\Http\Controllers;
 
 use Homeserver\Gerecht;
+use Homeserver\Vlees;
 use Illuminate\Http\Request;
 
 class GerechtController extends Controller
@@ -15,7 +16,8 @@ class GerechtController extends Controller
     public function index()
     {
         $gerechts = \Homeserver\Gerecht::all();
-        return view('gerechten.overzicht')->with('gerechts', $gerechts);
+        $vlezen = \Homeserver\Vlees::all();
+        return view('gerechten.overzicht', ['gerechts' => $gerechts, 'vlezen' => $vlezen]);
     }
 
     /**
