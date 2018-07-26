@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/gerechten/pervlees', 'GerechtController@pervlees');
 Route::get('/gerechten/perstarch', 'GerechtController@perstarch');
 Route::get('/gerechten', 'GerechtController@index');
-Route::get('/gerechten/{overzicht}/main', 'GerechtController@show');
+Route::get('/gerechten/{overzicht}', 'GerechtController@show');
