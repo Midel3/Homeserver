@@ -8,9 +8,9 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <a href="{{action('GerechtController@pervlees')}}">Gerechten per vlees</a>
-                    <br>
-                    <a href="{{action('GerechtController@perstarch')}}">Gerechten per starch</a>
+                    <a href="{{action('GerechtController@index')}}" class="btn btn-default">
+                        Dinner
+                    </a>
                 </div>
             </div>
         </div>

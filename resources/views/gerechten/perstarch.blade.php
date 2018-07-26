@@ -1,6 +1,4 @@
-@extends('layouts.gerecht')
 
-@section('overzicht')
 @foreach ($starches as $starch)
     <div class="panel panel-default">
         <div class="panel-heading">{{$starch->soort}}</div>
@@ -14,7 +12,7 @@
                         <th>Vlees</th>
                     </tr>
 
-                    @foreach ($gerechts as $gerecht)
+                    @foreach ($gerechtsByVlees as $gerecht)
                     @if ($gerecht->starch === $starch->soort)
                     <tr>
                         <td>{{$gerecht->naam}}</td>
@@ -29,4 +27,3 @@
         </div>
     </div>
 @endforeach
-@endsection

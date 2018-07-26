@@ -8,88 +8,41 @@ use Illuminate\Http\Request;
 
 class GerechtController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function index()
+    {
+        /*$gerechtsByStarch = \Homeserver\Gerecht::orderBy('starch', 'asc')->get();
+        $gerechtsByVlees = \Homeserver\Gerecht::orderBy('vlees', 'asc')->get();
+        $vlezen = \Homeserver\Vlees::all();
+        $starches = \Homeserver\Starch::all();
+
+        return view('gerechten.main', ['gerechtsByStarch' => $gerechtsByStarch, 'gerechtsByVlees' => $gerechtsByVlees,
+        'starches' => $starches, 'vlezen' => $vlezen, 'overzicht' => $overzicht]);*/
+        $overzicht = 'gerechten.pervlees';
+        return redirect()->action('GerechtController@show', $overzicht);
+    }
+
     public function pervLees()
     {
-        $gerechts = \Homeserver\Gerecht::orderBy('starch', 'asc')->get();
-        $vlezen = \Homeserver\Vlees::all();
-        return view('gerechten.pervlees', ['gerechts' => $gerechts, 'vlezen' => $vlezen]);
+        $overzicht = 'gerechten.pervlees';
+        return redirect()->action('GerechtController@show', $overzicht);
     }
 
     public function perstarch()
     {
-        $gerechts = \Homeserver\Gerecht::all();
+        $overzicht = 'gerechten.perstarch';
+        return redirect()->action('GerechtController@show', $overzicht);
+    }
+
+    public function show($overzicht)
+    {
+        $gerechtsByStarch = \Homeserver\Gerecht::orderBy('starch', 'asc')->get();
+        $gerechtsByVlees = \Homeserver\Gerecht::orderBy('vlees', 'asc')->get();
+        $vlezen = \Homeserver\Vlees::all();
         $starches = \Homeserver\Starch::all();
-        return view('gerechten.perstarch', ['gerechts' => $gerechts, 'starches' => $starches]);
+
+        return view('gerechten.main', ['gerechtsByStarch' => $gerechtsByStarch, 'gerechtsByVlees' => $gerechtsByVlees,
+        'starches' => $starches, 'vlezen' => $vlezen, 'overzicht' => $overzicht]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \Homeserver\Gerecht  $gerecht
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Gerecht $gerecht)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Homeserver\Gerecht  $gerecht
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Gerecht $gerecht)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Homeserver\Gerecht  $gerecht
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Gerecht $gerecht)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Homeserver\Gerecht  $gerecht
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Gerecht $gerecht)
-    {
-        //
-    }
 }
