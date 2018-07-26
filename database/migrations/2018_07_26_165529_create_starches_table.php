@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGerechtsTable extends Migration
+class CreateStarchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateGerechtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gerechts', function (Blueprint $table) {
-            /*$table->increments('id');*/
-            $table->string('naam')->unique();
-            $table->string('omschrijving');
-            $table->string('vlees');
-            $table->string('starch');
+        Schema::create('starches', function (Blueprint $table) {
+            $table->string('soort');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateGerechtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gerechts');
+        Schema::dropIfExists('starches');
     }
 }

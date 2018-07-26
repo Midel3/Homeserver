@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*midel*/
-Route::get('/gerechten/overzicht', 'GerechtController@index');
+Route::get('/gerechten/pervlees', 'GerechtController@pervlees');
+Route::get('/gerechten/perstarch', 'GerechtController@perstarch');

@@ -13,11 +13,18 @@ class GerechtController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function pervLees()
+    {
+        $gerechts = \Homeserver\Gerecht::orderBy('starch', 'asc')->get();
+        $vlezen = \Homeserver\Vlees::all();
+        return view('gerechten.pervlees', ['gerechts' => $gerechts, 'vlezen' => $vlezen]);
+    }
+
+    public function perstarch()
     {
         $gerechts = \Homeserver\Gerecht::all();
-        $vlezen = \Homeserver\Vlees::all();
-        return view('gerechten.overzicht', ['gerechts' => $gerechts, 'vlezen' => $vlezen]);
+        $starches = \Homeserver\Starch::all();
+        return view('gerechten.perstarch', ['gerechts' => $gerechts, 'starches' => $starches]);
     }
 
     /**
