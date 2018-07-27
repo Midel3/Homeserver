@@ -50,6 +50,16 @@
                     <h2>Voeg nieuw gerecht toe</h2>
                 </div>
                 <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="titel">Titel</label>
+                            <input type="text" id="titel" class="form-control" required="required"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="omschrijving">Omschrijving</label>
+                            <input type="text" id="omschrijving" class="form-control"></input>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button>
