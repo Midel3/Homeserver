@@ -41,23 +41,30 @@
             </div>
         </div>
     </div>
+</div>
 
     <!-- modal add new dish -->
+<div class="container">
     <div class="modal" id="newDishModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Voeg nieuw gerecht toe</h2>
-                </div>
-                <div class="modal-body">
-                    <form>
+                <form method="post" action="{{action('GerechtController@saveDish', $overzicht)}}">
+                    {{ csrf_field() }}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title">Nieuw gerecht</h2>
+
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="titel">Titel</label>
                             <input type="text" id="titel" name="titel" class="form-control" required="required"></input>
                         </div>
                         <div class="form-group">
                             <label for="ingredienten">Ingrediënten</label>
-                            <textarea rows="5" cols="50" id="ingredienten" name="ingredienten" class="form-control"></textarea>
+                            <textarea rows="5" cols="50" id="ingredienten" name="ingredienten" class="form-control" required="required"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="starch">Soort</label>
@@ -75,11 +82,12 @@
                                 @endforeach
                             </select>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button> -->
+                    </div>
+                </form>
             </div>
         </div>
     </div>
