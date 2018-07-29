@@ -10,7 +10,7 @@ $factory->define(Homeserver\Gerecht::class, function (Faker $faker) {
     $starch = \Homeserver\Starch::all()->pluck('soort')->toArray();
     return [
         'naam' => substr($faker->sentence(2), 0, -1),
-        'omschrijving' => $faker->sentence(10),
+        'ingredienten' => $faker->sentence(10),
         'vlees' => $faker->randomElement($vlees),
         'starch' => $faker->randomElement($starch)
     ];

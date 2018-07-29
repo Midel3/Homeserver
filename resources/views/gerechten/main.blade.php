@@ -53,11 +53,27 @@
                     <form>
                         <div class="form-group">
                             <label for="titel">Titel</label>
-                            <input type="text" id="titel" class="form-control" required="required"></input>
+                            <input type="text" id="titel" name="titel" class="form-control" required="required"></input>
                         </div>
                         <div class="form-group">
-                            <label for="omschrijving">Omschrijving</label>
-                            <input type="text" id="omschrijving" class="form-control"></input>
+                            <label for="ingredienten">Ingrediënten</label>
+                            <textarea rows="5" cols="50" id="ingredienten" name="ingredienten" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="starch">Soort</label>
+                            <select id="starch" name="starch" class="form-control">
+                                @foreach ($starches as $starch)
+                                <option value="{{$starch->soort}}">{{$starch->soort}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vlees">Vlees</label>
+                            <select id="vlees" name="vlees" class="form-control">
+                                @foreach ($vlezen as $vlees)
+                                <option value="{{$vlees->soort}}">{{$vlees->soort}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </form>
                 </div>

@@ -6,7 +6,7 @@
                 <table class="table table-hover">
                     <tr>
                         <th>Naam</th>
-                        <th>Omschrijving</th>
+                        <th>Ingrediënten</th>
                         <th>Soort</th>
                         <th>Vlees</th>
                     </tr>
@@ -15,7 +15,7 @@
                     @if ($gerecht->vlees === $vlees->soort)
                     <tr>
                         <td>{{$gerecht->naam}}</td>
-                        <td>{{$gerecht->omschrijving}}</td>
+                        <td>{{$gerecht->ingredienten}}</td>
                         <td>{{$gerecht->starch}}</td>
                         <td>{{$gerecht->vlees}}</td>
                     </tr>
