@@ -1,6 +1,6 @@
-@foreach ($vlezen as $vlees)
+@foreach (\Homeserver\Gerecht::ALL_MEATS as $vlees)
     <div class="panel panel-default">
-        <div class="panel-heading">{{$vlees->soort}}</div>
+        <div class="panel-heading">{{$vlees}}</div>
         <div class="panel-body">
             <div>
                 <table class="table table-hover">
@@ -11,8 +11,8 @@
                         <th>Vlees</th>
                     </tr>
 
-                    @foreach ($gerechtsByStarch as $gerecht)
-                    @if ($gerecht->vlees === $vlees->soort)
+                    @foreach (\Homeserver\Gerecht::all() as $gerecht)
+                    @if ($gerecht->vlees === $vlees)
                     <tr>
                         <td>{{$gerecht->naam}}</td>
                         <td>{{$gerecht->ingredienten}}</td>

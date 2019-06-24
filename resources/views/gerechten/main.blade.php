@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -69,16 +70,16 @@
                         <div class="form-group">
                             <label for="starch">Soort</label>
                             <select id="starch" name="starch" class="form-control">
-                                @foreach ($starches as $starch)
-                                <option value="{{$starch->soort}}">{{$starch->soort}}</option>
+                                @foreach (\Homeserver\Gerecht::ALL_STARCHES as $starch)
+                                <option value="{{$starch}}">{{$starch}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="vlees">Vlees</label>
                             <select id="vlees" name="vlees" class="form-control">
-                                @foreach ($vlezen as $vlees)
-                                <option value="{{$vlees->soort}}">{{$vlees->soort}}</option>
+                                @foreach (\Homeserver\Gerecht::ALL_MEATS as $meat)
+                                <option value="{{$meat}}">{{$meat}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -86,6 +87,24 @@
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal" id="editDishModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="{{action('GerechtController@saveDish', $overzicht)}}">
+                    {{ csrf_field() }}
+                    <div class="modal-header">
+                        <h2 class="modal-title"></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
                     </div>
                 </form>
             </div>

@@ -1,10 +1,9 @@
-
-@foreach ($starches as $starch)
+@foreach (\Homeserver\Gerecht::ALL_STARCHES as $starch)
     <div class="panel panel-default">
-        <div class="panel-heading">{{$starch->soort}}</div>
+        <div class="panel-heading">{{$starch}}</div>
         <div class="panel-body">
             <div>
-                <table class="table table-hover">
+                <table class="table table-hover" id="gerechtsTable">
                     <tr>
                         <th>Naam</th>
                         <th>Ingrediënten</th>
@@ -12,13 +11,18 @@
                         <th>Vlees</th>
                     </tr>
 
-                    @foreach ($gerechtsByVlees as $gerecht)
-                    @if ($gerecht->starch === $starch->soort)
+                    @foreach (\Homeserver\Gerecht::all() as $gerecht)
+                    @if ($gerecht->starch === $starch)
                     <tr>
                         <td>{{$gerecht->naam}}</td>
                         <td>{{$gerecht->ingredienten}}</td>
                         <td>{{$gerecht->starch}}</td>
                         <td>{{$gerecht->vlees}}</td>
+                        <td>
+                            <button type="button" class="edit-modal btn btn-warning pull-right" data-id="{{$gerecht->id}}">
+                                Edit
+                            </button>
+                        </td>
                     </tr>
                     @endif
                     @endforeach
