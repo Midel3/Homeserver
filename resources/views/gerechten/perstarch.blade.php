@@ -19,7 +19,7 @@
                         <td>{{$gerecht->starch}}</td>
                         <td>{{$gerecht->vlees}}</td>
                         <td>
-                            <button type="button" class="edit-modal btn btn-warning pull-right" data-id="{{$gerecht->id}}">
+                            <button type="button" id="edit-modal-btn" class= "btn btn-warning pull-right" data-dish="{{$gerecht}}">
                                 Edit
                             </button>
                         </td>

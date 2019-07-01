@@ -25,3 +25,5 @@ Route::get('/gerechten/perstarch', 'GerechtController@perstarch');
 Route::get('/gerechten', 'GerechtController@index');
 Route::get('/gerechten/{overzicht}', 'GerechtController@show');
 Route::post('/gerechten/{overzicht}/save', 'GerechtController@saveDish');
+Route::post('/gerechten/{overzicht}/edit', 'GerechtController@editDish');
+

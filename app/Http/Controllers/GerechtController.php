@@ -50,4 +50,21 @@ class GerechtController extends Controller
         return redirect()->action('GerechtController@show', $overzicht);
     }
 
+    public function editDish(Request $request, $overzicht) {
+        $input = $request->all();
+
+        $gerecht = Gerecht::where('id', $input['id']);
+
+        $values = [
+            'ingredienten' => $input['ingredienten'],
+            'starch' => $input['starch'],
+            'vlees' => $input['vlees'],
+        ];
+
+
+        $gerecht->update($values);
+
+        return redirect()->action('GerechtController@show', $overzicht);
+    }
+
 }

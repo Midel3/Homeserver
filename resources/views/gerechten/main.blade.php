@@ -98,13 +98,42 @@
     <div class="modal" id="editDishModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{action('GerechtController@saveDish', $overzicht)}}">
+                <form method="post" action="{{action('GerechtController@editDish', $overzicht)}}">
                     {{ csrf_field() }}
+
                     <div class="modal-header">
-                        <h2 class="modal-title"></h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true">&times;</span>
                         </button>
+                        <h2 class="modal-title" id="edit-modal-title"></h2>
+
+                    </div>
+                    <input type="hidden" id="edit-id" name="id">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="edit-ingredienten">Ingrediënten</label>
+                            <textarea rows="5" cols="50" id="edit-ingredienten" name="ingredienten" class="form-control" required="required"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-starch">Soort</label>
+                            <select id="edit-starch" name="starch" class="form-control">
+                                @foreach (\Homeserver\Gerecht::ALL_STARCHES as $starch)
+                                    <option value="{{$starch}}">{{$starch}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-vlees">Vlees</label>
+                            <select id="edit-vlees" name="vlees" class="form-control">
+                                @foreach (\Homeserver\Gerecht::ALL_MEATS as $meat)
+                                    <option value="{{$meat}}">{{$meat}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button> -->
                     </div>
                 </form>
             </div>
