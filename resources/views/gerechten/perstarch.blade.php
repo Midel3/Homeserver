@@ -23,6 +23,14 @@
                                 Edit
                             </button>
                         </td>
+                        <td>
+                            <form action="{{action('GerechtController@deleteDish', $gerecht)}}" method="post">
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn btn-danger pull-right" onclick="return confirm('Wil je dit gerecht verwijderen?')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     @endif
                     @endforeach

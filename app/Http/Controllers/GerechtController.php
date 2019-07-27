@@ -4,9 +4,9 @@ namespace Homeserver\Http\Controllers;
 
 use Homeserver\Gerecht;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
-class GerechtController extends Controller
-{
+class GerechtController extends Controller {
 
     public function index()
     {
@@ -65,6 +65,12 @@ class GerechtController extends Controller
         $gerecht->update($values);
 
         return redirect()->action('GerechtController@show', $overzicht);
+    }
+
+    public function deleteDish(Request $request, $gerecht) {
+        $dish = Gerecht::where('id', $gerecht);
+        $dish->delete();
+        return redirect()->back();
     }
 
 }
