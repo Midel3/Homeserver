@@ -6,3 +6,17 @@ $(document).on('click', '#edit-modal-btn', function() {
     $('#edit-starch').val($(this).data('dish').starch);
     $('#editDishModal').modal('show');
 });
+
+$(document).on('click', '#delete-dish-btn', function () {
+    console.log($(this).data('dish'));
+
+    var token = $("meta[name='csrf-token']").attr("content");
+    $.ajax({
+        url: '/gerechten/' + ($(this).data('dish').id) + '/delete',
+        data: {"_token" : token},
+        type: 'POST',
+        success: function(data) {
+            console.log("SUCCES");
+        }
+    });
+});
