@@ -38,7 +38,26 @@
         </div>
         <div class="col-md-4">
             <div style="padding: 30px">
-                <h2>Week</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-group">
+                            <input type="hidden" id="currentWeek" name="currentWeek" value={{date("W")}}>
+                            <select id="weekToShow" name="weekToShow" class="form-control">
+                                @for ($i = 1; $i <= 53; $i++)
+                                    <option value="{{$i}}">week {{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
             </div>
         </div>
     </div>
@@ -132,10 +151,60 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">
+                            Update
+                        </button>
                         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button> -->
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal" id="addWeekDinnerModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="add-dinner-title"></h2>
+
+                </div>
+                <input type="hidden" id="week-dish-id" name="id">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="year">Jaar</label>
+                        <select id="week-year" name="year" class="form-control">
+                            @foreach (\Homeserver\WeekDinner::ALL_YEARS as $year)
+                                <option value="{{$year}}">{{$year}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="week">Week</label>
+                        <select id="week-week" name="week" class="form-control">
+                            @for ($i = (int) date("W"); $i <= 53; $i++)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="day">Dag</label>
+                        <select id="week-day" name="day" class="form-control">
+                            @foreach (\Homeserver\WeekDinner::DAYS_OF_WEEK as $day)
+                                <option value="{{$day}}">{{$day}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="store-week-dinner-btn" class="btn btn-primary">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

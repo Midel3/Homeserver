@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Gerecht
  * @package Homeserver
- * @property string $id
+ * @property integer $id
  * @property string $naam
  * @property string $ingredienten
  * @property string $starch
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Gerecht extends Model  {
 
-    protected $table = 'gerechts';
+    protected $table = 'dishes';
     protected $primaryKey = 'id';
 
     const ALL_MEATS = [

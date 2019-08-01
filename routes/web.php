@@ -27,4 +27,5 @@ Route::get('/gerechten/{overzicht}', 'GerechtController@show');
 Route::post('/gerechten/{overzicht}/save', 'GerechtController@saveDish');
 Route::post('/gerechten/{overzicht}/edit', 'GerechtController@editDish');
 Route::post('/gerechten/{gerecht}/delete', 'GerechtController@deleteDish');
+Route::post('/gerechten/{gerecht}/storeDishOnDay' , 'GerechtController@storeDinner');
 

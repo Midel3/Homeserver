@@ -5,10 +5,13 @@
             <div>
                 <table class="table table-hover">
                     <tr>
+                        <th>Add</th>
                         <th>Naam</th>
                         <th>Ingrediënten</th>
                         <th>Soort</th>
                         <th>Vlees</th>
+                        <th>Edit</th>
+                        <th>Del</th>
                     </tr>
 
                     @foreach (\Homeserver\Gerecht::all() as $gerecht)

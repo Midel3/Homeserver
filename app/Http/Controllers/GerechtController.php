@@ -3,7 +3,9 @@
 namespace Homeserver\Http\Controllers;
 
 use Homeserver\Gerecht;
+use Homeserver\WeekDinner;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
 class GerechtController extends Controller {
@@ -67,10 +69,35 @@ class GerechtController extends Controller {
         return redirect()->action('GerechtController@show', $overzicht);
     }
 
-    public function deleteDish(Request $request, $gerecht) {
-        $dish = Gerecht::where('id', $gerecht);
+    public function deleteDish(Request $request, $dishId) {
+        $dish = Gerecht::where('id', $dishId);
         $dish->delete();
-        return redirect()->back();
+    }
+
+    public function storeDinner(Request $request, $dishId) {
+        $year = $request->input('year');
+        $week = $request->input('week');
+        $day = $request->input('day');
+
+        $foundDays = WeekDinner::where([
+            ['year', '=', $year],
+            ['week', '=', $week],
+            ['day', '=', $day]
+        ])->get();
+
+        if ($foundDays->count()) {;
+            return \response('filled', 400);
+        }
+
+        $dinner = new WeekDinner;
+        $dinner->year = $year;
+        $dinner->week = $week;
+        $dinner->day = $day;
+        $dinner->dish_id = $dishId;
+
+        $dinner->save();
+
+        return \response('success', 200);
     }
 
 }

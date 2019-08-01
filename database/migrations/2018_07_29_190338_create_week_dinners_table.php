@@ -13,8 +13,12 @@ class CreateWeekDinnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('week_dinners', function (Blueprint $table) {
-            $table->string('dag')->unique();
+        Schema::create('week_dishes', function (Blueprint $table) {
+            $table->increments('id')->unique();
+            $table->string('year');
+            $table->string('week');
+            $table->string('day');
+            $table->integer('dish_id');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateWeekDinnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('week_dinners');
+        Schema::dropIfExists('week_dishes');
     }
 }
