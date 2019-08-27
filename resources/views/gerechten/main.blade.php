@@ -52,7 +52,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        &nbsp;
+                        &nbsp;<div class="panel panel-default">
+                            <div class="panel-body">
+                                <div>
+                                    <table class="table table-hover" id="gerechtsTable">
+                                        <tr>
+                                            <th>Dag</th>
+                                            <th>Gerecht</th>
+                                            <th></th>
+                                        </tr>
+                                        @foreach (\Homeserver\WeekDinner::DAYS_OF_WEEK as $day)
+                                            @include('gerechten.planrow')
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

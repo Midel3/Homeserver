@@ -24,8 +24,9 @@ Route::get('/gerechten/pervlees', 'GerechtController@pervlees');
 Route::get('/gerechten/perstarch', 'GerechtController@perstarch');
 Route::get('/gerechten', 'GerechtController@index');
 Route::get('/gerechten/{overzicht}', 'GerechtController@show');
+Route::get('/gerechten/{}/getweekdays', 'GerechtController@getWeekDays');
 Route::post('/gerechten/{overzicht}/save', 'GerechtController@saveDish');
 Route::post('/gerechten/{overzicht}/edit', 'GerechtController@editDish');
 Route::post('/gerechten/{gerecht}/delete', 'GerechtController@deleteDish');
 Route::post('/gerechten/{gerecht}/storeDishOnDay' , 'GerechtController@storeDinner');
-
+Route::post('/gerechten/{week}/getplanneddinners', 'GerechtController@getPlannedDinners');

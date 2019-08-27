@@ -1,6 +1,9 @@
+
+
 $( document ).ready(function() {
     var currentWeek = $('#currentWeek').val();
     $('#weekToShow').val(currentWeek);
+    updatePlanning(currentWeek);
 });
 
 $(document).on('click', '#edit-modal-btn', function() {
@@ -52,10 +55,58 @@ $(document).on('click', '#store-week-dinner-btn', function () {
         type: 'POST',
         success: function(data) {
             $('#addWeekDinnerModal').modal('hide');
+            updatePlanning(week);
         },
         error: function (data) {
-            console.log(data);
             alert('');
         }
     });
 });
+
+$('#weekToShow').change(function () {
+    updatePlanning($(this).val());
+});
+
+function updatePlanning(week) {
+    emptyPlanning(showPlanning, week);
+}
+
+function emptyPlanning(showfunction, week) {
+    var token = $("meta[name='csrf-token']").attr("content");
+    $.ajax({
+        type: "GET",
+        url: "/gerechten/{}/getweekdays",
+        data: {
+            "_token" : token,
+        },
+        success: function (data) {
+            var json = $.parseJSON(data);
+            for (index in json) {
+                var day = json[index];
+                $('#plan_' + day).html('');
+            }
+            showfunction(week);
+        }
+    });
+}
+
+function showPlanning(week) {
+
+    var token = $("meta[name='csrf-token']").attr("content");
+    $.ajax({
+        type: "POST",
+        url: "/gerechten/{week}/getplanneddinners",
+        data: {
+            "_token" : token,
+            "week" : week
+        },
+        success: function (data) {
+            var json = $.parseJSON(data);
+            var weekdinner;
+            for (weekdinner in json) {
+                var plannedMeal = json[weekdinner];
+                $('#plan_' + plannedMeal.day).html('Broodje');
+            }
+        }
+    });
+}

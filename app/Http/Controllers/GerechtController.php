@@ -33,7 +33,7 @@ class GerechtController extends Controller {
 
         return view('gerechten.main',
             [
-                'overzicht' => $overzicht
+                'overzicht' => $overzicht,
             ]);
     }
 
@@ -98,6 +98,17 @@ class GerechtController extends Controller {
         $dinner->save();
 
         return \response('success', 200);
+    }
+
+    public function getWeekDays(Request $request) {
+        return \response(json_encode(WeekDinner::DAYS_OF_WEEK, TRUE), 200);
+    }
+
+    public function getPlannedDinners(Request $request) {
+        $week = $request->input('week');
+        $plannedDinners = WeekDinner::where('week', $week)->get()->all();
+
+        return \response(json_encode($plannedDinners, TRUE), 200);
     }
 
 }
