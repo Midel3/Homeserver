@@ -3,11 +3,68 @@
 
 @section('content')
 <div class="text-center">
-    <h1>Dinner</h1>
+    <h1 id="week-header">Week</h1>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
+            <div style="padding: 30px">
+                <div class="row">
+                    <div class="col-md-12 btn-toolbar">
+                        <div class="btn-group">
+                            <input type="hidden" id="currentWeek" name="currentWeek" value={{date("W")}}>
+                            <select id="weekToShow" name="weekToShow" class="form-control">
+                                @for ($i = 1; $i <= 53; $i++)
+                                    <option value="{{$i}}">week {{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" id="prev-week-btn">
+                                    <
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="next-week-btn">
+                                    >
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="this-week-btn">
+                                    Deze week
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        &nbsp;<div class="panel panel-default">
+                            <div class="panel-body">
+                                <div>
+                                    <table class="table table-hover" id="gerechtsTable">
+                                        <tr>
+                                            <th>Dag</th>
+                                            <th>Gerecht</th>
+                                            <th></th>
+                                        </tr>
+                                        @foreach (\Homeserver\WeekDinner::DAYS_OF_WEEK as $day)
+                                            @include('gerechten.planrow')
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1>Gerechten</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div style="padding: 30px">
                 <div class="row">
                     <div class="col-md-8">
@@ -33,45 +90,6 @@
                 </div>
                 <div class="row">
                     @include($overzicht)
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div style="padding: 30px">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="btn-group">
-                            <input type="hidden" id="currentWeek" name="currentWeek" value={{date("W")}}>
-                            <select id="weekToShow" name="weekToShow" class="form-control">
-                                @for ($i = 1; $i <= 53; $i++)
-                                    <option value="{{$i}}">week {{$i}}</option>
-                                @endfor
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        &nbsp;<div class="panel panel-default">
-                            <div class="panel-body">
-                                <div>
-                                    <table class="table table-hover" id="gerechtsTable">
-                                        <tr>
-                                            <th>Dag</th>
-                                            <th>Gerecht</th>
-                                            <th></th>
-                                        </tr>
-                                        @foreach (\Homeserver\WeekDinner::DAYS_OF_WEEK as $day)
-                                            @include('gerechten.planrow')
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
                 </div>
             </div>
         </div>
@@ -166,10 +184,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
-                            Update
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-save"></i>
                         </button>
-                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button> -->
+                        <button type="button" id="delete-dish-btn" class= "btn btn-danger pull-right" data-dish="">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </div>
                 </form>
             </div>

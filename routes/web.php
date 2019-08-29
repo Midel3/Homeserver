@@ -30,3 +30,4 @@ Route::post('/gerechten/{overzicht}/edit', 'GerechtController@editDish');
 Route::post('/gerechten/{gerecht}/delete', 'GerechtController@deleteDish');
 Route::post('/gerechten/{gerecht}/storeDishOnDay' , 'GerechtController@storeDinner');
 Route::post('/gerechten/{week}/getplanneddinners', 'GerechtController@getPlannedDinners');
+Route::post('/gerechten/{plannedmeal}/deletePlannedMeal', 'GerechtController@deletePlannedMeal');

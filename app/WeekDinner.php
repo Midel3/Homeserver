@@ -3,6 +3,7 @@
 namespace Homeserver;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class WeekDinner
@@ -32,13 +33,16 @@ class WeekDinner extends Model  {
 
     const ALL_YEARS = ['2019', '2020'];
     const DAYS_OF_WEEK = [
+        'vrijdag',
+        'zaterdag',
+        'zondag',
         'maandag',
         'dinsdag',
         'woensdag',
-        'donderdag',
-        'vrijdag',
-        'zaterdag',
-        'zondag'
+        'donderdag'
     ];
 
+    public function gerecht() {
+        return $this->belongsTo(Gerecht::class, 'dish_id');
+    }
 }

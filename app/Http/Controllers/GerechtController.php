@@ -100,13 +100,29 @@ class GerechtController extends Controller {
         return \response('success', 200);
     }
 
+    public function deletePlannedMeal(Request $request, $plannedmeal) {
+
+        Log::debug($plannedmeal);
+
+        $meal = WeekDinner::where('id', $plannedmeal)->first();
+        $meal->delete();
+
+        return \response('success', 200);
+    }
+
     public function getWeekDays(Request $request) {
         return \response(json_encode(WeekDinner::DAYS_OF_WEEK, TRUE), 200);
     }
 
     public function getPlannedDinners(Request $request) {
         $week = $request->input('week');
+
         $plannedDinners = WeekDinner::where('week', $week)->get()->all();
+
+        /** @var WeekDinner $dinner */
+        foreach ($plannedDinners as $dinner) {
+            $dinner->gerecht;
+        }
 
         return \response(json_encode($plannedDinners, TRUE), 200);
     }
